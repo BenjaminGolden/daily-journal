@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Journal</title>
+    <link href="styles/main.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <figure>
+            <img href="" alt="">
+        </figure>
+        <h1>B.J. Golden</h1>
+    </header>
+    <main>
+        <h2>Daily Journal</h2>
+        <form action="">
+            <fieldset>
+                <label for='journalDate'>Date of entry</label>
+                <input type="date" name="journalDate" id="journalDate">
+            </fieldset>
+            <fieldset>
+                <label for="concepts">concepts covered:</label><br>
+                <input type="text" id="concepts" name="concepts">
+            </fieldset>
+            <fieldset>
+                <label for="jEntry">Journal Entry:</label><br>
+                <input type="text" id="jEntry" name="jEntry">
+            </fieldset>
+            <fieldset>
+                <label for="mood">Mood for the day:</label>
+                <select id="mood" name="mood">
+                <option value="happy">Happy</option>
+                <option value="sad">Sad</option>
+                <option value="confused">Confused</option>
+                <option value="lost">Lost</option>
+                </select>
+            </fieldset>
+            <button type="button">record journal entry</button>
+        </form>
+    </main>
+    <footer></footer>
+</body>
+</html>
