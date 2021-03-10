@@ -1,6 +1,6 @@
 import { EntryListComponent } from './JournalEntryList.js';
 import { getEntry } from "./DataManager.js"
-import { journalList } from "./JournalEntryList.js"
+
 
 const startDailyJournal = () => {
     const journalElement = document.querySelector(".journalList");//setting journalElement = to where I want to put the HTML on the Dom

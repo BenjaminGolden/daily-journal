@@ -1,6 +1,6 @@
-import { getJournalEntries } from "./JournalData.js"  //importing the getJournalEntries function from JournalData.js
+//import { getJournalEntries } from "./JournalData.js"  //importing the getJournalEntries function from JournalData.js
 import { JournalEntryComponent } from "./JournalEntry.js"  //importing the JournalEntryComponent function from JournalEntry.js
-import { journalFetch } from "./Journal.js"
+
 
 export const EntryListComponent = (allEntries) => {  //exporting the result of calling the function EntryListComponent
    
@@ -18,10 +18,10 @@ export const EntryListComponent = (allEntries) => {  //exporting the result of c
 
 
 
-export const journalList = (allEntries) => {
-    let journalHTML = "";
-    for (const fetchObj of allEntries){
-        journalHTML += journalFetch(fetchObj)
-    }
-    return journalHTML;
-}
+// export const journalList = (allEntries) => {
+//     let journalHTML = "";
+//     for (const fetchObj of allEntries){
+//         journalHTML += journalFetch(fetchObj)
+//     }
+//     return journalHTML;
+// }
