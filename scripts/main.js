@@ -1,6 +1,7 @@
 import { EntryListComponent } from './JournalEntryList.js';
 import { getEntry } from "./DataManager.js"
-
+import { NavBar } from "./nav/NavBar.js"
+import { Footer } from "./nav/Footer.js"
 
 const startDailyJournal = () => {
     const journalElement = document.querySelector(".journalList");//setting journalElement = to where I want to put the HTML on the Dom
@@ -12,8 +13,20 @@ const startDailyJournal = () => {
     
 }
 
+const showNavBar = () => {
+    //Get a reference to the location on the DOM where the nav will display
+    const navElement = document.querySelector("nav");
+	navElement.innerHTML = NavBar();
+}
+
+const showFooter = () => {
+    const footerElement = document.querySelector("footer");
+    footerElement.innerHTML = Footer();
+}
 
 startDailyJournal();
+showNavBar();
+showFooter();
 
 
 // getUsers()
