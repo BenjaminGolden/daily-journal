@@ -20,4 +20,10 @@ h1 {
 }
 footer {
     background-color: aqua;
+    padding: .5rem;
+}
+.footer__item {
+    display:flex;
+    justify-content:flex-end;
+    justify-content: space-between;
 }
