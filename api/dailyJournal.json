@@ -2,14 +2,14 @@
   "entry": [
     {
       "date": "03/09/2021",
-      "concept": "postman to post data using json server",
-      "entry": "testing out what I've learned about using the json server to put data in VScode",
+      "concept": "post data using json server",
+      "journalEntry": "testing out what I've learned about using the json server to put data in VScode",
       "mood": "happy",
       "id": 1
     },
     {
       "date": "03/09/2021",
-      "concept": "postman to post data using json server",
+      "concept": "Second data post using json server",
       "journalEntry": "testing out what I've learned about using the json server to put data in VScode",
       "mood": "happy",
       "id": 2
