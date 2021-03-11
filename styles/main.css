@@ -1,7 +1,23 @@
-@import "navigation.css";
+@import "nav.css";
+
+body {
+    margin: 0;
+}
+
 
 .fieldset {
 display: flex;
 flex-direction: column;
 
+}
+h1 {
+    padding-top: 1em;
+    text-align: center;
+}
+.journalList {
+    margin: 1em;
+    padding: 1em;
+}
+footer {
+    background-color: aqua;
 }

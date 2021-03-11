@@ -28,7 +28,8 @@
 }
 
 .navigation__icon > img {
-    height: 2rem;
+    object-fit: contain;
+    height: 3rem;
 }
 
 
