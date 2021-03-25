@@ -4,11 +4,12 @@ export const JournalEntryComponent = (entryObj) => {       //exporting the resul
       <header>
           <h2 class="">Concept: ${entryObj.concept}</h2>
       </header>      
-      <div>User Id: ${entryObj.id}</div>
+      <div>Id: ${entryObj.id}</div>
       <p>Mood: ${entryObj.mood}</p>
-      <p>Date: ${entryObj.date}</p>
+      <p>Date: ${entryObj.dateOfEntry}</p>
       <p>Entry: ${entryObj.journalEntry}</p>
-      <div><button id="edit${entryObj.id}">Edit</button></div>
+      <div><button id="edit--${entryObj.id}">Edit</button></div>
+      <div><button id="delete--${entryObj.id}">Delete</button></div>
     </section>
   `
 };

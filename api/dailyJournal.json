@@ -1,25 +1,116 @@
 {
-  "entry": [
+  "entries": [
     {
-      "date": 1583961728000,
+      "dateOfEntry": 1583961728000,
       "concept": "post data using json server",
       "journalEntry": "testing out what I've learned about using the json server to put data in VScode",
       "mood": "happy",
       "id": 1
     },
     {
-      "date": 1615497728000,
+      "dateOfEntry": 1615497728000,
       "concept": "Second data post using json server",
       "journalEntry": "testing out what I've learned about using the json server to put data in VScode",
       "mood": "happy",
       "id": 2
     },
     {
-      "date": 1615497728000,
+      "dateOfEntry": 1615497728000,
       "concept": "Trying to display fetched data in HTML representation",
       "journalEntry": "can't get anything to display  on the dom, returns undefined with no errors",
       "mood": "frustrated",
       "id": 3
+    },
+    {
+      "id": 4
+    },
+    {
+      "dateOfEntry": "",
+      "concept": "qq",
+      "journalEntry": "qq",
+      "userId": 1,
+      "mood": "happy",
+      "id": 5
+    },
+    {
+      "id": 6
+    },
+    {
+      "dateOfEntry": "2021-03-24",
+      "concept": "ERD",
+      "journalEntry": "fixing journal",
+      "userId": 1,
+      "mood": "confused",
+      "id": 7
+    },
+    {
+      "id": 8
+    },
+    {
+      "dateOfEntry": "2012-03-24",
+      "concept": "music",
+      "journalEntry": "grad school",
+      "userId": 1,
+      "mood": "happy",
+      "id": 9
+    },
+    {
+      "id": 10
+    },
+    {
+      "dateOfEntry": "2020-03-24",
+      "concept": "data",
+      "journalEntry": "pandemic",
+      "userId": 1,
+      "mood": "sad",
+      "id": 11
+    },
+    {
+      "id": 12
+    },
+    {
+      "dateOfEntry": "2020-03-25",
+      "concept": "json",
+      "journalEntry": "testing",
+      "userId": 1,
+      "mood": "lost",
+      "id": 13
+    },
+    {
+      "id": 14
+    },
+    {
+      "dateOfEntry": "2012-03-31",
+      "concept": "Json",
+      "journalEntry": "testing3",
+      "userId": 1,
+      "mood": "confused",
+      "id": 15
+    },
+    {
+      "id": 16
+    },
+    {
+      "dateOfEntry": "",
+      "concept": "",
+      "journalEntry": "",
+      "userId": 1,
+      "mood": "lost",
+      "id": 17
+    },
+    {
+      "id": 18
+    },
+    {
+      "dateOfEntry": "2021-03-24",
+      "concept": "lecture",
+      "journalEntry": "watched 44 back end capstones",
+      "userId": 1,
+      "mood": "lost",
+      "id": 19
     }
+  ],
+  "posts": [
+    {}
   ]
 }

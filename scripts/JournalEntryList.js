@@ -17,11 +17,3 @@ export const EntryListComponent = (allEntries) => {  //exporting the result of c
 };
 
 
-
-// export const journalList = (allEntries) => {
-//     let journalHTML = "";
-//     for (const fetchObj of allEntries){
-//         journalHTML += journalFetch(fetchObj)
-//     }
-//     return journalHTML;
-// }
