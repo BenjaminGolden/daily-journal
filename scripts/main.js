@@ -1,11 +1,12 @@
 import { EntryListComponent } from './JournalEntryList.js';
-import { getEntry, useEntryCollection, createEntry } from "./DataManager.js"
+import { getEntry, useEntryCollection, createEntry, getLoggedInUser } from "./DataManager.js"
 import { NavBar } from "./nav/NavBar.js"
 import { Footer } from "./nav/Footer.js"
 
 
 
-const applicationElement = document.querySelector(".dailyJournal");//application element stores the place on the dom we are listening.
+//application element stores the place on the dom we are listening.
+const applicationElement = document.querySelector(".dailyJournal");
 //adding an event listener to the date box
 applicationElement.addEventListener("change", event =>{
     if(event.target.id === "journalDate"){
@@ -44,6 +45,7 @@ applicationElement.addEventListener("click", (event) =>{
 applicationElement.addEventListener("click", event =>{
     if(event.target.id === "recordEntry"){
         console.log("store my thoughts")
+        createEntry();
     }
 })
 
@@ -57,31 +59,33 @@ applicationElement.addEventListener("click", event =>{
 //logout button listener
 applicationElement.addEventListener("click", event =>{
     if(event.target.id === "logout"){
-        console.log("Bye 'Felicia!")
+        console.log("Bye!")
     }
 })
+
+//TODO: make edit button functional. filter entries needs dropdown and functionality. 
 
 //edit button listener...the id returns undefined...
 applicationElement.addEventListener("click", event =>{
     if(event.target.id.startsWith ("edit")){
         console.log("entry clicked", event.target.id.split("--"))
-		console.log("the id is", event.target.id.split("--")[1])
+		
     }
 })
         
-    const showFilteredEntries = (year) => {
+    const showEntriesByYear = (year) => {
         //get a copy of the post collection
         const epoch = Date.parse(`01/01/${year}`);
         console.log(epoch);
         //filter the data
-        debugger
+  
         const dataArray = useEntryCollection()
         const filteredData = dataArray.filter(singleEntry => {
         if (singleEntry.timestamp >= epoch) {
             return singleEntry
         }
      });
-        const entryElement = document.querySelector(".entryList");
+        const entryElement = document.querySelector(".journalList");
         entryElement.innerHTML = EntryListComponent(filteredData);
     }
 
@@ -90,44 +94,79 @@ applicationElement.addEventListener("change", event => {
     const yearAsNumber = parseInt(event.target.value)
     console.log(`User wants to see posts since ${yearAsNumber}`)
     //invoke a filter function passing the year as an argument
-    showFilteredEntries(yearAsNumber);
+    showEntriesByYear(yearAsNumber);
   }
 })
 
+const showEntriesByMood = () => {
+    const dataArray = useEntryCollection();
+    const mood = document.querySelector("#moodSelection").value
+    const moodFilter = dataArray.filter(singleEntry => {
+        if (singleEntry.mood === mood){
+            return singleEntry
+        }
+    });
+    const entryElement = document.querySelector(".journalList");
+    entryElement.innerHTML = EntryListComponent(moodFilter);
+}
 
-
-applicationElement.addEventListener("click", event => {
-    event.preventDefault();//means don't refresh the page
-    if (event.target.id === "newPost__submit") {
-    //collect the input values into an object to post to the DB
-      const title = document.querySelector("input[name='postTitle']").value
-      const url = document.querySelector("input[name='postURL']").value
-      const description = document.querySelector("textarea[name='postDescription']").value
-      //we have not created a user yet - for now, we will hard code `1`.
-      //we can add the current time as well
-      const postObject = {
-          title: title,
-          imageURL: url,
-          description: description,
-          userId: getLoggedInUser().id,
-          timestamp: Date.now()
-      }
-  
-    // be sure to import from the DataManager
-        createPost(postObject)
-        .then(response => {
-            console.log("what is the new post", response);
-            showPostList();
-        })
+applicationElement.addEventListener("change", event => {
+    if (event.target.id === "moodSelection") {
+      const filterByMood = event.target.value
+      console.log(`user is feeling posts that are ${filterByMood}`)
+      //invoke a filter function passing the year as an argument
+      showEntriesByMood(filterByMood);
     }
   })
 
 
 
+
+
+
+//todo entryListComponent returns undefined and promise unfulfilled but info posts to json
+applicationElement.addEventListener("click", event => {
+    event.preventDefault();//means don't refresh the page
+    if (event.target.id === "recordEntry") {
+    //collect the input values into an object to post to the DB
+      const dateOfEntry = document.querySelector("#journalDate").value
+      const concept = document.querySelector("#concepts").value
+      const journalEntry = document.querySelector("#jEntry").value
+      const mood = document.querySelector("#mood").value
+
+      const entryObject = {
+          dateOfEntry: dateOfEntry,
+          concept: concept,
+          journalEntry: journalEntry,
+          userId: getLoggedInUser().id,
+          mood: mood
+          //timestamp: Date.now()
+      }
+        createEntry(entryObject)
+        .then(response => {
+            console.log("what is the new entry", response);
+            showEntryList();
+        })
+    }
+  })
+
+
+  const showEntryList = () => {
+    const entryElement = document.querySelector(".entryList");
+      getEntry().then((allEntries) => {//when i get allEntries I can create the list
+          entryElement.innerHTML = entryListComponent(allEntries.reverse());//reverses post array display
+      })
+  }
+
+
+
 const startDailyJournal = () => {
-    const journalElement = document.querySelector(".journalList");//setting journalElement = to where I want to put the HTML on the Dom
-	getEntry().then((entryData) => {//getEntry contains fetched data from json server. .then-uses the data stored in () 
-    journalElement.innerHTML = EntryListComponent(entryData);//trying to grab the fetched data and display it through the HTML rep created in journalFetch
+    const journalElement = document.querySelector(".journalList");
+    //setting journalElement = to where I want to put the HTML on the Dom
+	getEntry().then((entryData) => {
+        //getEntry contains fetched data from json server. .then-uses the data stored in () 
+    journalElement.innerHTML = EntryListComponent(entryData);
+    //trying to grab the fetched data and display it through the HTML rep created in journalFetch
     //I am trying to set the information that I receive from the fetched data call equal to my HTML rep on the Dom.
     }) 
     
